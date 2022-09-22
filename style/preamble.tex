@@ -1,0 +1,135 @@
+\usepackage[T1]{fontenc}
+
+\ifcastellano\usepackage[spanish,es-tabla,es-sloppy]{babel}\fi
+\ifvalencia\usepackage[catalan]{babel}\fi
+\ifenglish\usepackage[english]{babel}\usepackage{csquotes}\fi
+\newcommand{\sen}{\on{sen}}	
+
+\usepackage{xcolor}
+\usepackage{array,booktabs}
+\usepackage{tabularx,longtable,multicol}
+\usepackage{amssymb}
+\usepackage{natbib}
+
+
+\colorlet{colorEnlace}{black}
+
+\usepackage[
+	{colorlinks},
+	{linkcolor=colorEnlace},
+	{citecolor=colorEnlace},
+	{urlcolor=colorEnlace},
+	{bookmarksnumbered},
+	{breaklinks},
+	]{hyperref}
+
+% ---------------------------------------------------------------------
+% ---------------------------------------------------------------------
+% International System Units
+
+\usepackage{eurosym}
+\usepackage{siunitx}
+
+\ifenglish
+	\sisetup{output-decimal-marker={.}}
+\else
+	\sisetup{output-decimal-marker={,}}
+\fi
+
+\DeclareSIUnit[number-unit-product = {\;}] \EURO{\geneuro}
+
+
+
+% ---------------------------------------------------------------------
+
+\newcommand{\ingles}[1]{\textit{#1}}
+
+% ------------------------------------------------------------------------
+
+\usepackage{xspace}
+
+\newcommand{\angles}[1]{\textit{#1}\/}
+\newcommand{\miUrl}[1]{{\small%
+	{\underline{#1}}}}
+
+\newcommand{\matlabr}{{\sc Matlab}$^\circledR$\xspace}
+\newcommand{\simulinkr}{\textit{Simulink}$^\circledR$\xspace}
+\newcommand{\matlab}{{\textsc{Matlab}}\xspace}
+\newcommand{\simulink}{\textit{Simulink}\xspace}
+
+\newcommand{\scr}{\textit{script\/}\xspace}
+\newcommand{\scrs}{\textit{scripts\/}\xspace}
+
+% ------------------------------------------------------------------------
+
+\definecolor{griset}{rgb}{.925, .925, .925}
+
+
+\newsavebox{\mybox}
+\newenvironment{parrafoDestacado}
+	{%
+	\fboxsep = 2ex
+	\fboxrule = .4pt
+  	\begin{lrbox}{\mybox}%
+  	\begin{minipage}{.85\textwidth-2\fboxsep}\itshape\parskip=2ex
+	}
+	{%
+	\end{minipage}
+  	\end{lrbox}%
+	\begin{flushright}
+		\colorbox{griset}{\usebox{\mybox}}%
+	\end{flushright}
+	}
+	
+
+% ------------------------------------------------------------------------
+% Chapter abstract
+
+\newsavebox{\myboxb}
+\newenvironment{Resumen}
+	{%
+	\vspace*{-2.0cm}
+	\fboxsep = 0pt
+	\fboxrule = 0pt
+  	\begin{lrbox}{\myboxb}%
+  	\begin{minipage}{.85\textwidth}\itshape\parskip=2ex\parindent=2em
+	}
+	{%
+	\end{minipage}
+  	\end{lrbox}%
+	\begin{flushright}
+		\usebox{\myboxb}%
+	\end{flushright}
+	\vspace{0.5cm}
+	}
+
+% ---------------------------------------------------------------------
+% ---------------------------------------------------------------------
+% Math symbols
+
+\newcommand{\on}{\operatorname}
+
+% ---------------------------------------------------------------------
+% ---------------------------------------------------------------------
+% Theorems and examples
+
+\ifcastellano
+	\newtheorem{teorema}{\upshape\bfseries Teorema}[section]
+	\newtheorem{lema}{\mdseries\scshape Lema}[section]
+	\newtheorem{proposicion}{\upshape\bfseries Proposición}[section]
+	\newtheorem{ejemplo}{\bfseries\scshape Ejemplo}[section]
+\fi
+
+\ifvalencia
+	\newtheorem{teorema}{\upshape\bfseries Teorema}[section]
+	\newtheorem{lema}{\mdseries\scshape Lema}[section]
+	\newtheorem{proposicion}{\upshape\bfseries Proposició}[section]
+	\newtheorem{ejemplo}{\bfseries\scshape Exemple}[section]
+\fi
+
+\ifenglish
+	\newtheorem{teorema}{\upshape\bfseries Theorem}[section]
+	\newtheorem{lema}{\mdseries\scshape Lemma}[section]
+	\newtheorem{proposicion}{\upshape\bfseries Proposition}[section]
+	\newtheorem{ejemplo}{\bfseries\scshape Example}[section]
+\fi
