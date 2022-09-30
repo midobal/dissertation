@@ -1,5 +1,5 @@
 # Dissertation template
-This repo presents a LaTeX template design for dissertations. It is based on the template by [Editorial UPV](https://editorialupv.webs.upv.es/) and it was created for the Ph.D.'s thesis [Some Contributions to Interactive Machine Translation and to the Applications of Machine Translation for Historical Documents.](https://mdomingo.me/documents/PhDdissertation.pdf).
+This repo presents a LaTeX template design for dissertations. It is based on the template by [Editorial UPV](https://editorialupv.webs.upv.es/) and it was created for the Ph.D.'s thesis [Some Contributions to Interactive Machine Translation and to the Applications of Machine Translation for Historical Documents](https://mdomingo.me/documents/PhDdissertation.pdf).
 
 ## Usage
 `dissertation.tex` contains an example to guide you on how to write a dissertation using this template. See [dissertation.pdf](dissertation.pdf) for a detailed guide.
