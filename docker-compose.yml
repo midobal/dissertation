@@ -1,0 +1,10 @@
+version: '3'
+services:
+  server:
+    image: dissertation
+    build: ./docker
+    volumes:
+      - .:/dissertation
+      - ./fonts/qualitype:/usr/share/fonts/opentype/qualitype/
+      - ./fonts/plex:/usr/share/fonts/opentype/plex/
+      - ./fonts/math:/usr/share/fonts/opentype/math/
