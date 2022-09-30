@@ -11,6 +11,9 @@
 *.cb
 *.cb2
 .*.lb
+*.equ
+*.exam
+*.mtc
 
 ## Intermediate documents:
 *.dvi
