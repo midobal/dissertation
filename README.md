@@ -8,9 +8,9 @@ This repo presents a LaTeX template design for dissertations. It is based on the
 By default, this document uses some fonts that are not available by default in all distributions. Therefore, you need to manually copy them to your system:
 
 ```
-cp fonts/qualitype:/usr/share/fonts/opentype/qualitype/
-cp fonts/plex:/usr/share/fonts/opentype/plex/
-cp fonts/math:/usr/share/fonts/opentype/math/
+cp -r fonts/qualitype:/usr/share/fonts/opentype/qualitype/
+cp -r fonts/plex:/usr/share/fonts/opentype/plex/
+cp -r fonts/math:/usr/share/fonts/opentype/math/
 ```
 
 Alternatively, you can compile the document through [Docker](#docker).
