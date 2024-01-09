@@ -1,0 +1,63 @@
+\chapter{This Is a Fairly Long Title to Check How it Looks Like}
+\label{ch:example}
+\rput[r](0.585\textwidth,2.5){\psvectorian[color=cross,scale=0.4]{58}}
+\begin{Resumen}
+	\QuotesFont
+	\noindent Roses are red, \\
+	violets are blue. \\
+	I've written a thesis, \\
+	and so can you.
+	
+	\emph{(}\textbf{Roses}. \emph{Anony Mouse}.\emph{)}
+\end{Resumen}
+\minitoc
+\clearpage
+
+This document showcases the usage of this dissertation template, spiced with a pinch of humor.
+
+\section{Environments}
+\label{se:env}
+In this section we are going to see the different environments that are available in this document.
+
+\subsection{Figures}
+\cref{fig:phd} showcases an example of the \emph{Figure} environment.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.3]{fig/phd.png}
+	\caption[A PhD student writing their dissertation]{A PhD student writing their dissertation.}
+	\label{fig:phd}
+\end{figure}
+
+\subsection{Tables}
+\cref{ta:results} exemplifies how to showcase the results of your awesome proposals.
+
+\begin{table}[!ht]
+	\caption[How to showcase the results of your awesome proposals.]{How to showcase the results of your awesome proposals.}
+	\label{ta:results}
+	\centering
+	\resizebox{0.95\textwidth}{!}{\begin{minipage}{\textwidth}
+			\centering
+			\begin{tabular}{c c c}
+				\toprule
+				\multirow{2}{*}{\textbf{Proposal}} & \textbf{Metric 1} & \textbf{Metric 2} \\
+				&  \textbf{[$\downarrow$]} & \textbf{[$\uparrow$]}  \\
+				\midrule
+				Baseline & 0.5 & 0.5 \\
+				Proposal 1 & 0.0 & 1.0 \\
+				Proposal 2 & 0.0 & 1.0 \\
+				\bottomrule
+			\end{tabular}
+	\end{minipage}}
+\end{table}
+
+\subsection{Examples}
+This document comes with a custom \emph{Example} environment, which should be useful for creating... examples! Have a look at \cref{ej:example} for an exemplification that exemplifies how to exemplify an example.
+
+\begin{Ejemplo}{\myexamples{Exemplification of how to exemplify and example.}Exemplification of how to exemplify and example.}{ej:example}
+	What better way to exemplify something than using its own example environment?
+	\label{ej:example}
+\end{Ejemplo}
+
+\section{Acronyms}
+Another useful tool is the management of acronyms. You can define your acronyms at \texttt{tex/acros.tex}. Then, you can use them with either the command \texttt{{\backslash}ac} (for written the acronym uncapitalized) or \texttt{{\backslash}Ac} (for capitalizing the first letter, which is useful for beginning of sentences). For example, \texttt{{\backslash}ac\{vip\}} produces: \ac{vip}.

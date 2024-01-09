@@ -1,0 +1,60 @@
+\chapter*{Preface}\chaptermark{Preface}\addcontentsline{toc}{chapter}{Preface}\mtcaddchapter
+\rput[c](0.46\textwidth,6.5){\psvectorian[scale=0.5]{24}}
+
+This is a good place to motivate the problems you are facing on your dissertation and the proposals you made to solve them.
+
+\pagebreak
+
+The scientific goals of this thesis are divided into two main groups:
+
+\begin{enumerate}
+	\item \textbf{Group 1}. We propose to do things.
+	\item \textbf{Group 2}. We did things!
+\end{enumerate}
+
+This dissertation is structured in 7 chapters that relate as follows:
+
+\newlength{\introlength}\settowidth{\introlength}{test \nameref{ch:example}}\setlength{\introlength}{0.6\introlength}
+
+\begin{figure*}[!h]
+	\centering
+	\footnotesize
+	\resizebox{\textwidth}{!}{
+	\begin{tikzpicture}[node distance=0.75cm]
+		%\scriptsize
+		\node (intro) [chapter, text width=\the\introlength] {Ch. \ref{ch:example} \\ \nameref{ch:example}};
+		\node (mt) [chapter, text width=\the\introlength, below=0.75cm of intro] {Ch. \ref{ch:example} \\ \nameref{ch:example}};
+		\node (lmod) [chapter, text width=\the\introlength, below=0.75cm of mt] {Ch. \ref{ch:example} \\ \nameref{ch:example}};
+		\node (imt) [chapter, text width=\the\introlength, left=0.5cm of lmod] {Ch. \ref{ch:example} \\ \nameref{ch:example}};
+		\node (snor) [chapter, text width=\the\introlength, right=0.5cm of lmod] {Ch. \ref{ch:example} \\ \nameref{ch:example}};
+		\node (imthd) [chapter, text width=\the\introlength, below=of lmod] {Ch. \ref{ch:example} \\ \nameref{ch:example}};
+		\node (conclusions) [chapter, text width=\the\introlength, below=of imthd] {Ch. \ref{ch:example} \\ \nameref{ch:example}};
+		\draw [arrow] (intro) -- (mt);
+		\draw [arrow] (mt) -| (imt);
+		\coordinate [above=0.5cm of lmod](lmodpoint);
+		\coordinate [above=0.5cm of snor](snorpoint);
+		\coordinate [left=1.5cm of snorpoint](intropoint);
+		\draw [line] (intro) -| (intropoint);
+		\draw [line] (mt) -| (intropoint);
+		\draw [arrow] (lmodpoint) -- (lmod);
+		\draw [arrow] (snorpoint) -- (snor);
+		\draw [line] (lmodpoint) -- (snorpoint);
+		\draw [arrow] (imt) |- (imthd);
+		\draw [arrow] (lmod) -- (imthd);
+		\draw [arrow] (snor) |- (imthd);
+		\draw [arrow] (imthd) -- (conclusions);
+	\end{tikzpicture}
+	}	
+\end{figure*}
+
+The content of each chapter is:
+
+\begin{description}
+	\item[\cref{ch:example}] showcases the usage of this dissertation template, spiced with a pinch of humor.
+\end{description}
+
+These chapters are complemented by the following appendixes:
+
+\begin{description}
+	\item[\cref{ap:appendix}] showcases how an appendix looks like.
+\end{description}

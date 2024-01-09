@@ -1,0 +1,265 @@
+\documentclass[nocrop, rm, english]{style/template}
+
+% Options
+%
+% rm          - Roman font
+% sf          - Sanserif font
+% crop        - Crop marks (cross shaped) 17x24 cm (+3 mm for each side) centered on an A4
+% nocrop      - Without crop marks, respeta el tama�o 17x24 cm 
+%
+% castellano  - For publications written in Spanish
+% valencia    - For publications written in Valencian
+% english     - For publications written in English
+
+% ---------------------------------------------------------------------
+% Custom settings
+
+\input{style/preamble}
+\input{style/examples}
+\usepackage{titletoc}
+\usepackage{lipsum}
+\usepackage{multirow}
+
+\usepackage{lipsum}
+
+\usepackage{minitoc}
+\setcounter{minitocdepth}{1}
+
+\usepackage{fontspec}
+\newfontfamily\ExampleFont[Mapping=tex-text]{QTCloisteredMonk}
+\newfontfamily\TitleFont[Mapping=tex-text]{QTFlorencia}
+\newfontfamily\QuotesFont[Mapping=tex-text]{IBMPlexSerif-Light}
+\usepackage{unicode-math}
+\setmathfont{Libertinus Math}
+
+\usepackage{lettrine}
+\usepackage{GoudyIn}
+
+\usepackage{xcolor} 
+\renewcommand{\LettrineFontHook}{\color{purple}\GoudyInfamily{}}
+\LettrineTextFont{\itshape}
+\setcounter{DefaultLines}{2}%
+
+\definecolor{crown}{RGB}{0,51,0}
+\definecolor{cross}{RGB}{102,102,0}
+\definecolor{flower}{RGB}{76,0,153}
+\definecolor{snor}{RGB}{102,0,204}
+\definecolor{backcover}{RGB}{8,8,70}
+
+\usepackage{xpatch}
+\newlistof{equations}{equ}{List of Equations}
+\newcommand{\myequations}[1]{%
+	\csname phantomsection\endcsname % if hyperref is loaded
+	\addcontentsline{equ}{equations}{\small\protect\numberline{\theequation} #1}%
+}
+
+\makeatletter
+\xpretocmd{\@chapter}{\addtocontents{equ}{\protect\addvspace{10\p@}}}{}{}{}%
+\makeatother
+
+\newlistof{examples}{exam}{List of Examples}
+\newcommand{\myexamples}[1]{%
+	\csname phantomsection\endcsname % if hyperref is loaded
+	\addcontentsline{exam}{examples}{\small\protect\numberline{\theejemploCounter} #1}%
+}
+
+\makeatletter
+\xpretocmd{\@chapter}{\addtocontents{exam}{\protect\addvspace{10\p@}}}{}{}{}%
+\makeatother
+
+\usepackage{style/psvectorian}
+\usepackage[]{pstricks}
+
+\usepackage{upquote}
+\usepackage{style/pgf-pie}
+\usepackage{subcaption}
+
+\usepackage{acro}
+\input{tex/acros}
+
+\usepackage{soul}
+
+\usepackage[toc]{appendix}
+
+\usepackage{pgfplots}
+\pgfplotsset{every tick label/.append style={font=\scriptsize}}
+
+\newcommand{\revisions}[1]{{\leavevmode\color{magenta}#1}}
+
+\usepackage{pdfpages}
+
+\usepackage{tikz}
+\makeatletter
+\newcommand*{\radiobutton}{%
+	\@ifstar{\@radiobutton0}{\@radiobutton1}%
+}
+\newcommand*{\@radiobutton}[1]{%
+	\begin{tikzpicture}
+	\pgfmathsetlengthmacro\radius{height("X")/2}
+	\draw[radius=\radius] circle;
+	\ifcase#1 \fill[radius=.6*\radius] circle;\fi
+	\end{tikzpicture}%
+}
+\makeatother
+
+\usetikzlibrary{shapes.geometric, arrows, positioning}
+\tikzstyle{chapter} = [rectangle, text width=2cm, text centered, draw=black, fill=white]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\tikzstyle{line} = [thick]
+
+
+\usepackage{etoolbox}
+\preto\chapter\acresetall
+
+\usepackage{pagecolor}
+
+\usepackage{soul}
+\makeatletter
+\NewDocumentCommand{\sotwo}{O{red}O{black}+m}
+{%
+	\begingroup
+	\setulcolor{#1}%
+	\setul{-.5ex}{.4pt}%
+	\def\SOUL@uleverysyllable{%
+		\rlap{%
+			\color{#2}\the\SOUL@syllable
+			\SOUL@setkern\SOUL@charkern}%
+		\SOUL@ulunderline{%
+			\phantom{\the\SOUL@syllable}}%
+	}%
+	\ul{#3}%
+	\endgroup
+}
+\makeatother
+
+\makeatletter
+\newcommand{\namerefname}[1]{\edef\@currentlabelname{#1}}% New \nameref name
+\makeatother
+
+% ---------------------------------------------------------------------
+% Path for graphics
+
+\graphicspath{
+	{./fig/}
+	{./logo/}
+	}
+
+% ---------------------------------------------------------------------
+
+\newcommand{\department}{Science Fiction Department}
+
+\title{
+	On Writing your Ph.D. Dissertation \\[3ex]
+	\mdseries \LARGE	Ph.D. Dissertation
+	}
+
+\author{
+	\parbox{\textwidth}{\centering%
+			Miguel Domingo\\[1ex]
+			Supervised by Prof. Oak\\[.5ex]
+		}
+	}
+
+\date{July 1969}
+
+% ---------------------------------------------------------------------
+% ---------------------------------------------------------------------
+% ---------------------------------------------------------------------
+
+\begin{document}
+\includepdf{cover/frontcover.pdf}
+
+\dominitoc
+
+\frontmatter
+
+\titlecontents{psection}[2.3em]
+{} {\contentslabel{2.3em}} {} {\titlerule*[1pc]{.}\contentspage}
+\titlecontents{psubsection}[5.5em]
+{} {\contentslabel{3.2em}} {} {\titlerule*[1pc]{.}\contentspage}
+
+% -------------------------------------------------------
+% Title page
+
+\maketitle
+
+
+
+% -------------------------------------------------------
+
+\cleardoublepage
+\input{tex/acknowledgements}
+
+\cleardoublepage
+\input{tex/abstract}
+
+\cleardoublepage
+\input{tex/preface}
+	
+% -------------------------------------------------------
+\cleardoublepage
+\tableofcontents
+
+
+\cleardoublepage
+\input{tex/acronyms}
+
+
+% -------------------------------------------------------
+% Arabic page numbers
+
+\mainmatter
+
+% -------------------------------------------------------
+% -------------------------------------------------------
+% -------------------------------------------------------
+% Chapters
+
+\cleardoublepage
+\include{tex/example}
+
+% -------------------------------------------------------
+% -------------------------------------------------------
+% -------------------------------------------------------
+% Appendix
+
+\appendix
+
+\cleardoublepage
+\include{tex/appendix}
+
+% -------------------------------------------------------
+% -------------------------------------------------------
+% -------------------------------------------------------
+% Lists
+\setcounter{chapter}{0}
+
+% Figures
+\cleardoublepage
+\listoffigures \mtcaddchapter
+\addcontentsline{toc}{chapter}{List of Figures}
+
+% Tables
+\cleardoublepage
+\listoftables \mtcaddchapter
+\addcontentsline{toc}{chapter}{List of Tables}
+
+% Equations
+\cleardoublepage
+\listofequations \mtcaddchapter
+\addcontentsline{toc}{chapter}{List of Equations}
+
+% Examples
+\cleardoublepage
+\listofexamples \mtcaddchapter
+\addcontentsline{toc}{chapter}{List of Examples}
+
+\cleardoublepage
+\bibliographystyle{apalike}
+\bibliography{tex/dissertation}
+\chaptermark{Bibliography}\addcontentsline{toc}{chapter}{Bibliography}\mtcaddchapter
+
+\cleardoublepage
+\includepdf{cover/backcover.pdf}
+
+\end{document}
